@@ -15,6 +15,7 @@ import EditShippingAddress from "./EditShippingAddress";
 import EditSubscriptions from "./EditSubscriptions";
 import ViewSubscriptions from "./ViewSubscriptions";
 import Profile from '../assets/profileLogo.jpg';
+import { IoMdClose } from "react-icons/io";
 
 const companiesData = [
     { id: 1, name: 'Acme', contact: 'Karim Adeyemi', email: 'karim@acme.com', subscriptions: 4 },
@@ -57,21 +58,51 @@ const Company = () => {
 
   return (
     <div style={{ overflow: 'hidden'}}>
-      <Modal opened={opened} onClose={close} title="Add Company">
-        <Divider />
+      <Modal opened={opened} onClose={close} title="Add Company"  styles={{
+          title: {
+            color: "#10335B",
+            fontWeight: 'bold',
+            fontSize: '23px'
+          }
+        }}
+        closeButtonProps={{
+          icon: <IoMdClose size={30} stroke={1.5} color="#123360" />,
+        }}
+      >
+        <Divider pb='sm' />
         <form>
             <TextInput
                 label="Name"
+                styles={{
+                  label: {
+                    color: '#5B6A81',
+                    fontWeight: '700'
+                  }
+                }}
             />
              <NativeSelect
                 rightSection={<IconChevronDown style={{ width: rem(16), height: rem(16) }} />}
                 label="Main Contact"
                 data={['Karim Adeyemi', 'Olu Kayode']}
-                mt="md"
+                mt="sm"
+                styles={{
+                  label: {
+                    color: '#5B6A81',
+                    fontWeight: '700'
+                  },
+                  input: {
+                    color: '#1F304A',
+                    fontWeight: '600'
+                  },
+                  section: {
+                    color: '#1F304A',
+                    fontWeight: '900'
+                  }
+                }}
             />
             <Group justify="flex-end" p='13px 0px'>
-                <Text onClick={close}> Cancel </Text>
-                <Button p='0px 34px' style={{ borderRadius: '0px'}} onClick={close}> Add </Button>
+            <Button style={{ padding: '0px 20px', backgroundColor: 'transparent', color: '#123360', fontWeight: 'bolder'}}>Cancel</Button>
+            <Button style={{ padding: '0px 40px', borderRadius: '0px', backgroundColor: '#14B8FF', height: '45px' }}> Add </Button>
             </Group>
         </form>
       </Modal>
