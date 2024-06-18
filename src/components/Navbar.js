@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from 'react';
+import { Box, Flex, List } from '@mantine/core';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { FiUsers, FiShoppingCart, FiBell, FiLogOut, FiDatabase, FiBox, FiFileText, FiPackage } from 'react-icons/fi';
@@ -11,6 +12,7 @@ import FieldbaseLogo from '../assets/fieldBase1.svg';
 import Logo from '../assets/logo.png';
 import Profile from '../assets/profileLogo.jpg';
 import Image from 'next/image';
+import classes from './navbar.module.css';
 
 const Navbar = ({ isOpen, toggleSidebar }) => {
   const pathname = usePathname();
@@ -24,7 +26,7 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
   const navItems = [
     {
       name: 'Clients',
-      icon: <TbUserSearch className="w-5 h-5" style={{ color: activeTab === 'clients' ? '#33ABE0' : '' }} />,
+      icon: <TbUserSearch className={classes.iconContainer} style={{ color: activeTab === 'clients' ? '#33ABE0' : '' }} />,
       subLinks: [
         { name: 'Companies', href: '/' },
         { name: 'Contacts', href: '/clients/contacts' },
@@ -36,7 +38,7 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
     },
     {
       name: 'Inventory',
-      icon: <FaList className="w-5 h-5" />,
+      icon: <FaList className={classes.iconContainer} />,
       subLinks: [
         { name: 'Stock', href: '/inventory/stock' },
         { name: 'Warehouse', href: '/inventory/warehouse' },
@@ -45,7 +47,7 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
     },
     {
       name: 'Sales',
-      icon: <MdOutlineHandshake className="w-5 h-5" />,
+      icon: <MdOutlineHandshake className={classes.iconContainer} />,
       subLinks: [
         { name: 'Leads', href: '/sales/leads' },
         { name: 'Opportunities', href: '/sales/opportunities' },
@@ -54,7 +56,7 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
     },
     {
       name: 'Staff',
-      icon: <MdOutlineEngineering className="w-5 h-5" />,
+      icon: <MdOutlineEngineering className={classes.iconContainer} />,
       subLinks: [
         { name: 'Employees', href: '/staff/employees' },
         { name: 'Teams', href: '/staff/teams' },
@@ -63,62 +65,62 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
     },
     {
       name: 'Notifications',
-      icon: <FiBell className="w-5 h-5" />,
+      icon: <FiBell className={classes.iconContainer} />,
       subLinks: [],
       notificationCount: 13
     }
   ];
 
   return (
-    <div className={`flex flex-col relative h-screen pl-1 pt-3 bg-white border border-e-[#C8CCCF] ${isOpen ? 'w-64' : 'w-20'}`}>
-      <div className="space-y-3">
-        <div className="flex items-center justify-between pl-3 pt-4 pb-1">
-          <div className={`text-xl font-bold ${!isOpen && 'hidden'}`}>
+    <Box className={`${classes.container} ${isOpen ? `${classes.containerOpen}` : `${classes.containerClose}` }`}>
+      <Flex justify={'space-between'}  mt='0.75rem'>
+        <Box className={classes.logoContainer}>
+          <Box className={`${classes.image} ${!isOpen && `${classes.hidden}`}`}>
             <Image
               priority
               src={FieldbaseLogo}
               alt="Logo"
-              style={{ width: '130px' }}
+              width='130px'
             />
-          </div>
-          <div className={`text-xl font-bold ${isOpen && 'hidden'}`}>
+          </Box>
+          <Box className={`${classes.image} ${isOpen && `${classes.hidden}`}`}>
             <Image
               priority
               src={Logo}
               alt="Logo"
             />
-          </div>
+          </Box>
           {
             isOpen ? (
-              <MdOutlineNavigateBefore onClick={toggleSidebar} className='border absolute right-0' />
+              <MdOutlineNavigateBefore onClick={toggleSidebar} className={classes.closeIcon} />
             ) : (
-              <MdNavigateNext onClick={toggleSidebar} className='border absolute right-0' />
+              <MdNavigateNext onClick={toggleSidebar} className={classes.closeIcon} />
             )
           }
-        </div>
-      </div>
-      <div className="flex-1">
-        <ul className="pt-3 pb-4 space-y-1 text-sm font-bold">
+        </Box>
+      </Flex>
+      <Box>
+        <List className={classes.navList}>
           {navItems.map(item => (
-            <li key={item.name} className="rounded-sm relative">
+            <li key={item.name} className={classes.navItem}>
               <button
                 onClick={() => setActiveTab(item.name.toLowerCase())}
-                className={`flex items-center pl-3 space-x-2 w-full ${activeTab === item.name.toLowerCase() ? 'bg-[#E7F8FF] text-[#33ABE0] py-4 ' : 'text-[#133251] py-3'} before:block before:absolute ${activeTab === item.name.toLowerCase() ? 'before:bg-[#16B7FF]' : ''} before:left-[-12px] before:h-[52px] before:w-[12px]`}
+                className={`${classes.navButton} ${activeTab === item.name.toLowerCase() ? `${classes.activeTab}` : `${classes.inactiveTab}`}`}
               >
                 {item.icon}
-                <span className={`${!isOpen && 'hidden'}`}>{item.name}</span>
+                <span className={`${classes.navName} ${!isOpen && `${classes.hidden}`}`}>{item.name}</span>
                 {item.notificationCount && isOpen && (
-                  <span className="ml-auto text-xs bg-red-500 text-white rounded-full px-2 py-1 absolute right-4">
+                  <span className={classes.notification}>
                     {item.notificationCount}
                   </span>
                 )}
               </button>
               {activeTab === item.name.toLowerCase() && isOpen && item.subLinks.length > 0 && (
-                <ul className="pl-8 mt-2 space-y-1">
+                <ul className={classes.subNavList}>
                   {item.subLinks.map(subLink => (
                     <li key={subLink.name}>
                       <Link href={subLink.href} passHref>
-                        <span className={`${pathname === subLink.href ? 'text-[#33ABE0]' : 'text-[#133251]'}`}>
+                        <span className={`${pathname === subLink.href ? `${classes.activeSubLink}` : `${classes.subLink}`}`}>
                           {subLink.name}
                         </span>
                       </Link>
@@ -128,20 +130,18 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
               )}
             </li>
           ))}
-        </ul>
-      </div>
-      <div className="flex items-center pl-3 py-3 mt-auto space-x-2 bg-[#F3FBFE]">
-        <Image src={Profile} alt="user" className="w-18 h-18 rounded-full" />
-        <div className={`${!isOpen && 'hidden'}`}>
-          <div className="text-sm font-medium text-[#13325E] font-[700] h-[13px]">Ibrahim Musa</div>
-          <div>
-            <Link href="/logout">
-              <span className="text-xs text-[#485B6A]">Log out</span>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+        </List>
+      </Box>
+      <Box className={classes.profile}>
+        <Image src={Profile} alt="user" className={classes.profileImage} />
+        <Box className={`${!isOpen && `${classes.hidden}`}`}>
+          <Box className={classes.profileName}>Ibrahim Musa</Box>
+          <Link href="/logout">
+            <Box className={classes.logout}>Log out</Box>
+          </Link>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

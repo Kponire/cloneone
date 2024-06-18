@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Box, Button, Group, TextInput } from '@mantine/core';
+import classes from './form.module.css';
 
 const EditSubscriptions = ({ subscriptions, onSave, onCancel }) => {
   const [formData, setFormData] = useState({
@@ -14,23 +15,18 @@ const EditSubscriptions = ({ subscriptions, onSave, onCancel }) => {
   };
 
   return (
-    <Box style={{ display: 'flex', flexDirection: 'column', height: '88vh' }}>
-      <Box style={{ flexGrow: 1, padding: '0px 30px' }}>
+    <Box className={classes.container}>
+      <Box className={classes.inputContainer}>
       <TextInput
         label={`Subscription ${1} Name`}
         value={formData.name}
         onChange={(e) => handleChange(index, 'name', e.target.value)}
         fullWidth
-          pb='xs'
-          styles={{
-            label: {
-              color: 'white'
-            },
-            input: {
-              backgroundColor: '#0E3465',
-              color: 'white'
-            },
-          }}
+        pb='xs'
+        classNames={{
+          label: classes.inputLabel,
+          input: classes.inputElement
+        }}
       />
       <TextInput
         label={`Subscription ${1} Status`}
@@ -38,20 +34,15 @@ const EditSubscriptions = ({ subscriptions, onSave, onCancel }) => {
         onChange={(e) => handleChange(index, 'status', e.target.value)}
         fullWidth
         pb='xs'
-        styles={{
-          label: {
-            color: 'white'
-          },
-          input: {
-            backgroundColor: '#0E3465',
-            color: 'white'
-          },
+        classNames={{
+          label: classes.inputLabel,
+          input: classes.inputElement
         }}
         />
       </Box>
-      <Group justify="flex-end" mt="md" style={{ borderTop: '1px solid #C8CCCF', padding: '10px 30px' }}> 
-        <Button onClick={onCancel} style={{ padding: '0px 40px', backgroundColor: 'transparent'}}>Cancel</Button>
-        <Button onClick={() => onSave(formData)} style={{ padding: '0px 40px', borderRadius: '0px' }} variant='lights'>Save</Button>
+      <Group className={classes.actionsContainer}> 
+        <Button onClick={onCancel} className={classes.cancelButton}>Cancel</Button>
+        <Button onClick={() => onSave(formData)} className={classes.saveButton} variant='lights'>Save</Button>
       </Group>
     </Box>
   );

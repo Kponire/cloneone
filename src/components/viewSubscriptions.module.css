@@ -1,0 +1,83 @@
+/* viewSubscriptions.module.css */
+.container {
+    width: 100%;
+    color: #FFFFFF;
+  }
+  
+  .tabs {
+    font-weight: 600;
+    font-size: 30px;
+  }
+  
+  .tab {
+    color: #FFFFFF;
+  }
+  
+  .tabActive {
+    color: #2BADF8;
+  }
+  
+  .panel {
+    padding: 0 20px;
+  }
+  
+  .panelServices {
+    padding: 0 30px;
+  }
+  
+  .servicesContainer {
+    margin-top: 1em;
+  }
+  
+  .serviceHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em 0;
+  }
+  
+  .title {
+    font-weight: 500;
+  }
+  
+  .allServices {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .card {
+    margin-bottom: 0.5em;
+    border-radius: 4px;
+  }
+  
+  .cardTitle {
+    color: #162D56;
+    font-weight: 700;
+  }
+  
+  .badge {
+    font-weight: 700;
+    text-transform: none;
+  }
+  
+  .cardInfo {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0 3px;
+  }
+  
+  .shipName {
+    display: flex;
+    align-items: center;
+    color: #4F5C6D;
+    font-weight: 700;
+    font-size: 10px;
+    padding-left: 4px;
+  }
+  
+  .date {
+    color: #4D5673;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  

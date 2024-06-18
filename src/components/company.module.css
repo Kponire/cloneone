@@ -1,0 +1,246 @@
+.modalTitle {
+    color: #10335B;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.modalCloseButton {
+    width: 30px;
+    height: 30px;
+    stroke: 1.5;
+    color: #123360;
+}
+
+.modalLabel {
+    color: #5B6A81;
+    font-weight: 700;
+}
+
+.modalInput {
+    color: #1F304A;
+    font-weight: 600;
+}
+
+.modalSection {
+    color: #1F304A;
+    font-weight: 900;
+}
+
+.modalButtonCancel {
+    padding: 0px 20px;
+    background-color: transparent;
+    color: #123360;
+    font-weight: bolder;
+}
+
+.modalButtonAdd {
+    padding: 0px 40px;
+    border-radius: 0px;
+    background-color: #14B8FF;
+    height: 45px;
+}
+.openWidth {
+    width: 70%;
+}
+
+.closeWidth {
+    width: 100%;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 6px 40px;
+}
+
+.headerText {
+    color: #123360;
+    font-weight: 600;
+    font-size: 1.7em;
+}
+
+.headerGroup {
+display: flex;
+gap: 1em;
+}
+
+.searchInput {
+width: 7em;
+}
+
+.addButton {
+    background-color: #14B8FF;
+    width: 11em;
+    padding: 0 7px;
+    font-size: 11px;
+    border-radius: 1px;
+}
+
+.addButton:hover{
+    background-color: #14B8FF; 
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em;
+    margin: 0 6px;
+    background-color: #FFFFFF;
+    font-weight: bolder;
+    color: #3E5575;
+}
+
+.tableHeaderText {
+    font-weight: 600;
+}
+
+.tableRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+    margin: 6px;
+    border: 1px solid #B8B8B8;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+
+.tableRowText {
+    color: #3E5575;
+    font-weight: 500;
+}
+
+.detailContainer {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background-color: #0E3465;
+    padding: 20px 0 0 0;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: 0.5s ease-in-out;
+    min-height: 100vh;
+}
+
+.detailHeader {
+    padding: 0 30px;
+}
+
+.detailHeaderText {
+    color: white;
+    font-weight: 600;
+    font-size: 1.5em;
+    margin-left: 7px;
+}
+
+.detailHeaderAvatar {
+    color: #0E3465;
+    background-color: white;
+    font-size: var(--mantine-font-size-lg);   
+}
+
+.detailContent {
+padding: 0 30px;
+}
+
+.detailSection {
+padding-top: 24px;
+}
+
+.detailSectionHeader {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.detailSectionTitle {
+color: #25B2FA;
+font-weight: 500;
+font-size: 1.2em;
+}
+
+.detailSectionRow {
+    color: white;
+    padding-top: 6px;
+}
+
+.detailSectionLabel {
+    width: 40%;
+    font-weight: 500;
+}
+
+.detailSectionValue {
+    width: 60%;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.detailSectionPicture {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 9999px;
+}
+
+.avatarGroup {
+    display: flex;
+    gap: 0.5em;
+}
+
+.riArrowDropDownLine {
+    display: flex;
+    align-items: end;
+    padding-bottom: 7px;
+    color: #25B2FA;
+}
+
+.subscriptionBox {
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.subscriptionBoxHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subscriptionBoxText {
+    color: #18324B;
+    font-weight: bold;
+}
+
+.subscriptionBoxDetail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.subscriptionImage {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+}
+
+.subscriptionBoxContactText {
+    color: #3C4E66;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.subscriptionBoxStatus {
+    color: #6AB687;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #EEF9F3;
+    padding: 6px;
+}
+
+.hiDotsHorizontal {
+    display: flex;
+    align-items: flex-end;
+}
+  

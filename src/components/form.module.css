@@ -1,0 +1,47 @@
+/* form.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 88vh;
+}
+
+.inputContainer {
+    flex-grow: 1;
+    padding: 0 30px;
+}
+
+.inputField {
+    margin-bottom: 16px; 
+}
+
+.inputLabel {
+    color: white;
+}
+
+.inputElement {
+    background-color: #0E3465;
+    color: white;
+}
+
+.actionsContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px; 
+    border-top: 1px solid #C8CCCF;
+    padding: 10px 30px;
+}
+
+.cancelButton {
+    padding: 0 40px;
+    background-color: transparent;
+}
+
+.cancelButton:hover {
+    padding: 0 40px;
+    background-color: transparent;
+}
+.saveButton {
+    padding: 0 40px;
+    border-radius: 0;
+}
+  

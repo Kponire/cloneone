@@ -1,9 +1,8 @@
 import React from 'react';
-import { Tabs } from '@mantine/core';
-import { Card, Text, Group, Badge, Title, Flex, rem } from '@mantine/core';
-import { RiArrowDropDownLine } from 'react-icons/ri';
-import { RiShipLine } from "react-icons/ri";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { Tabs, Card, Text, Group, Badge, Title, Flex, rem } from '@mantine/core';
+import { RiArrowDropDownLine, RiShipLine } from 'react-icons/ri';
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import styles from './viewSubscriptions.module.css';
 
 const servicesData = [
   { id: 1, title: 'Radar Service', status: 'Upcoming', date: '23 Oct 2022', shipName: 'Ship Name', statusColor: '#3EB4F1' },
@@ -13,84 +12,72 @@ const servicesData = [
 ];
 
 const ServiceCard = ({ title, status, date, shipName, statusColor }) => (
-  <Card shadow="sm" padding="sm" radius="md" style={{ marginBottom: '0.5em', borderRadius: '4px' }}>
+  <Card shadow="sm" padding="sm" radius="md" className={styles.card}>
     <Flex justify='space-between'>
-      <Text weight={500} style={{ color: '#162D56', fontWeight: '700' }}>{title}</Text>
+      <Text weight={500} className={styles.cardTitle}>{title}</Text>
       <Badge 
         variant="light" 
         rightSection={<MdOutlineKeyboardArrowDown style={{ width: rem(12), height: rem(12) }} />} 
-        color={statusColor} 
+        color={statusColor }
         size="md" 
         radius="xs" 
-        style={{ fontWeight: '700', textTransform: 'none' }}
+        className={styles.badge}
       >
         {status}
       </Badge>
     </Flex>
-    <Flex justify='space-between' pt='7px' pb='3px'>
+    <Flex justify='space-between' className={styles.cardInfo}>
       <Flex align='center'>
         <RiShipLine size={25} />
-        <Text size="sm" style={{ color: '#4F5C6D', fontWeight: '700', fontSize: '10px', paddingLeft: '4px' }}>{shipName}</Text>
+        <Text size="sm" className={styles.shipName}>{shipName}</Text>
       </Flex>
-      <Text size="sm" color="dimmed" style={{ color: '#4D5673', fontSize: '10px', fontWeight: '600' }}>{date}</Text>
+      <Text size="sm" color="dimmed" className={styles.date}>{date}</Text>
     </Flex>
   </Card>
 );
 
 const ViewSubscriptions = () => {
   return (
-    <div style={{ width: '100%', color: '#FFFFFF' }}>
-        <Tabs defaultValue="services" styles={{
-          tab: {
-            color: '#FFFFFF', // Default color for inactive tabs
-            '&[data-active]': {
-              color: '#2BADF8', // Color for active tab
-            },
-          },
-        }}
-        style={{
-          fontWeight: '600',
-          fontSize: '30px',
-        }}
-        >
+    <div className={styles.container}>
+      <Tabs defaultValue="services" className={styles.tabs}>
         <Tabs.List grow justify="center">
-            <Tabs.Tab value="about">
-                About
-            </Tabs.Tab>
-            <Tabs.Tab value="services">
-                Services
-            </Tabs.Tab>
+          <Tabs.Tab value="about" className={styles.tab} activeClassName={styles.tabActive}>
+            About
+          </Tabs.Tab>
+          <Tabs.Tab value="services" className={styles.tab} activeClassName={styles.tabActive}>
+            Services
+          </Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="about" style={{ padding: '0px 20px' }}>
-            About Page
+        <Tabs.Panel value="about" className={styles.panel}>
+          About Page
         </Tabs.Panel>
 
-        <Tabs.Panel value="services" style={{ padding: '0px 30px'}}>
-            <div style={{ marginTop: '1em' }}>
-            <Flex justify='space-between' py='sm'>
-            <Title order={4} style={{ fontWeight: '500'}}>5 Services</Title>
-            <Flex>
-              <Text style={{ fontSize: '14px' }}> All Services </Text>
-              <RiArrowDropDownLine  size={23} />
-            </Flex>
+        <Tabs.Panel value="services" className={styles.panelServices}>
+          <div className={styles.servicesContainer}>
+            <Flex justify='space-between' className={styles.serviceHeader}>
+              <Title order={4} className={styles.title}>5 Services</Title>
+              <Flex className={styles.allServices}>
+                <Text>All Services</Text>
+                <RiArrowDropDownLine size={23} />
+              </Flex>
             </Flex>
 
             {servicesData.map(service => (
-            <ServiceCard 
+              <ServiceCard 
                 key={service.id} 
                 title={service.title} 
                 status={service.status} 
                 date={service.date} 
                 shipName={service.shipName} 
                 statusColor={service.statusColor} 
-            />
+              />
             ))}
-        </div>
+          </div>
         </Tabs.Panel>
-        </Tabs>
+      </Tabs>
     </div>
   );
-}
+};
 
 export default ViewSubscriptions;

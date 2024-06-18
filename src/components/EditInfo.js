@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Button, Group, TextInput, NativeSelect, Divider } from '@mantine/core';
 import { IconChevronDown } from '@tabler/icons-react';
+import classes from './form.module.css';
 
 const EditInfo = ({ info, onSave, onCancel }) => {
   const [formData, setFormData] = useState(info);
@@ -10,22 +11,17 @@ const EditInfo = ({ info, onSave, onCancel }) => {
   };
 
   return (
-    <Box style={{ display: 'flex', flexDirection: 'column', height: '88vh' }}>
-      <Box style={{ flexGrow: 1, padding: '0px 30px' }}>
+    <Box className={classes.container}>
+      <Box className={classes.inputContainer}>
         <TextInput
           label="Company no:"
           value={'12325123'}
           onChange={(e) => handleChange('companyNumber', e.target.value)}
           fullWidth
           pb='xs'
-          styles={{
-            label: {
-              color: 'white'
-            },
-            input: {
-              backgroundColor: '#0E3465',
-              color: 'white'
-            },
+          classNames={{
+            label: classes.inputLabel,
+            input: classes.inputElement
           }}
         />
         <TextInput
@@ -34,14 +30,9 @@ const EditInfo = ({ info, onSave, onCancel }) => {
           onChange={(e) => handleChange('name', e.target.value)}
           fullWidth
           pb='xs'
-          styles={{
-            label: {
-              color: 'white'
-            },
-            input: {
-              backgroundColor: '#0E3465',
-              color: 'white'
-            },
+          classNames={{
+            label: classes.inputLabel,
+            input: classes.inputElement
           }}
         />
         <NativeSelect
@@ -52,14 +43,9 @@ const EditInfo = ({ info, onSave, onCancel }) => {
           rightSection={<IconChevronDown />}
           fullWidth
           pb='xs'
-          styles={{
-            label: {
-              color: 'white'
-            },
-            input: {
-              backgroundColor: '#0E3465',
-              color: 'white'
-            },
+          classNames={{
+            label: classes.inputLabel,
+            input: classes.inputElement
           }}
         />
         <TextInput
@@ -68,20 +54,15 @@ const EditInfo = ({ info, onSave, onCancel }) => {
           onChange={(e) => handleChange('email', e.target.value)}
           fullWidth
           pb='xs'
-          styles={{
-            label: {
-              color: 'white'
-            },
-            input: {
-              backgroundColor: '#0E3465',
-              color: 'white'
-            },
+          classNames={{
+            label: classes.inputLabel,
+            input: classes.inputElement
           }}
         />
       </Box>
-      <Group justify="flex-end" mt="md" style={{ borderTop: '1px solid #C8CCCF', padding: '10px 30px' }}> 
-        <Button onClick={onCancel} style={{ padding: '0px 40px', backgroundColor: 'transparent'}}>Cancel</Button>
-        <Button onClick={() => onSave(formData)} style={{ padding: '0px 40px', borderRadius: '0px' }} variant='lights'>Save</Button>
+      <Group className={classes.actionsContainer}> 
+        <Button onClick={onCancel} className={classes.cancelButton}>Cancel</Button>
+        <Button onClick={() => onSave(formData)} className={classes.saveButton} variant='lights'>Save</Button>
       </Group>
     </Box>
   );
