@@ -132,24 +132,24 @@ const Company = () => {
                 </Button>
               </Group>
           </Flex>
-          <Flex className={classes.tableHeader}>
-              <Text w='5em' fw='600'> Name </Text>
-              <Text w='10em' fw='600'> Main Contact </Text>
-              <Text w='15em' fw='600'> Email </Text>
-              <Group>
-                <Text w='8em' fw='600' pe='3px'> Subscriptions </Text>
-                <Text w='1em'> </Text>
+          <Flex justify={"space-between"} className={classes.tableHeader}>
+              <Text w='15%' fw='600'> Name </Text>
+              <Text w='20%' fw='600'> Main Contact </Text>
+              <Text w='35%' fw='600'> Email </Text>
+              <Group w='15%' justify={'space-evenly'} >
+                <Text w='64%' fw='600'> Subscriptions </Text>
+                <Text w='5%'> </Text>
               </Group>
           </Flex>
             {
               orders.map((order, key) => (
-                <Flex className={classes.tableRow} key={key}>
-                  <Text w='5em' c='#3E5575' fw='500'> {order.name} </Text>
-                  <Text w='10em' c='#3E5575' fw='500'> {order.contact} </Text>
-                  <Text w='15em' c='#3E5575' fw='500'> {order.email} </Text>
-                  <Group>
-                    <Text w='8em' c='#3E5575' fw='500' ta='end' pe='3px'> {order.subscriptions} </Text>
-                    <HiDotsHorizontal onClick={() => handleCompanyClick(order)} />
+                <Flex justify={'space-between'} className={classes.tableRow} key={key}>
+                  <Text w='15%' c='#3E5575' fw='500'> {order.name} </Text>
+                  <Text w='20%' c='#3E5575' fw='500'> {order.contact} </Text>
+                  <Text w='35%' c='#3E5575' fw='500'> {order.email} </Text>
+                  <Group w='15%' justify={'space-evenly'} >
+                    <Text w='64%' c='#3E5575' fw='500' ta='end' pe='3px'> {order.subscriptions} </Text>
+                    <Box w='5%'> <HiDotsHorizontal onClick={() => handleCompanyClick(order)} /> </Box>
                   </Group>
                 </Flex>
               ))
@@ -194,7 +194,7 @@ const Company = () => {
                 <Text className={classes.detailSectionLabel}>Main Contact:</Text>
                 <Flex w='60%'>
                     <Image src={Profile} alt="user" className={classes.detailSectionPicture} />
-                    <Text fw='400' fz='13px' pl='2px'> {selectedCompany.contact} </Text>
+                    <Text fw='400' fz='13px' pl='6px'> {selectedCompany.contact} </Text>
                 </Flex>
               </Flex>
               <Flex  className={classes.detailSectionRow}>

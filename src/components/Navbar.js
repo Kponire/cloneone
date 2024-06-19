@@ -65,7 +65,7 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
     },
     {
       name: 'Notifications',
-      icon: <FiBell className={classes.iconContainer} />,
+      icon: <Indicator color="red" size={5} offset={5.5}> <FiBell className={classes.iconContainer}/> </Indicator>,
       subLinks: [],
       notificationCount: 13
     }
@@ -118,9 +118,9 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
               {activeTab === item.name.toLowerCase() && isOpen && item.subLinks.length > 0 && (
                 <ul className={classes.subNavList}>
                   {item.subLinks.map(subLink => (
-                    <li key={subLink.name}>
+                    <li key={subLink.name} className={classes.subLink}>
                       <Link href={subLink.href} passHref>
-                        <span className={`${pathname === subLink.href ? `${classes.activeSubLink}` : `${classes.subLink}`}`}>
+                        <span className={`${pathname === subLink.href ? `${classes.activeSubLink}` : `${classes.inactiveSubLink}`}`}>
                           {subLink.name}
                         </span>
                       </Link>
