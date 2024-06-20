@@ -49,7 +49,7 @@ export default function Home() {
           </Flex>
             {
               orders.map((order, key) => (
-                <Flex className={classes.tableRow}>
+                <Flex className={classes.tableRow} key={key}>
                   <Text w='5em' c='#3E5575' fw='500'> {order.orderNo} </Text>
                   <Text w='5em' c='#3E5575' fw='500'> {order.contact} </Text>
                   <Text w='5em' c='#3E5575' fw='500'> {order.company} </Text>
