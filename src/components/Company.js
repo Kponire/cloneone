@@ -13,7 +13,8 @@ import {
   Stack,
   ScrollArea,
   Avatar,
-  Title
+  Title,
+  Grid
 } from "@mantine/core";
 import {
   IconPlus,
@@ -132,26 +133,24 @@ const Company = () => {
                 </Button>
               </Group>
           </Flex>
-          <Flex justify={"space-between"} className={classes.tableHeader}>
-              <Text w='15%' fw='600'> Name </Text>
-              <Text w='20%' fw='600'> Main Contact </Text>
-              <Text w='35%' fw='600'> Email </Text>
-              <Group w='15%' justify={'space-evenly'} >
-                <Text w='64%' fw='600'> Subscriptions </Text>
-                <Text w='5%'> </Text>
-              </Group>
-          </Flex>
+          <Grid justify="space-between" className={classes.tableHeader}>
+            <Grid.Col span={2.80} fw='600' > Name </Grid.Col>
+            <Grid.Col span={3} fw='600'> Main Contact </Grid.Col>
+            <Grid.Col span={4.00} fw='600'> Email </Grid.Col>
+            <Grid.Col span={1.70} ta='end' fw='600'> Subscription </Grid.Col>
+            <Grid.Col span={0.5} fw='600'>  </Grid.Col>
+          </Grid>
             {
               orders.map((order, key) => (
-                <Flex justify={'space-between'} className={classes.tableRow} key={key}>
-                  <Text w='15%' c='#3E5575' fw='500'> {order.name} </Text>
-                  <Text w='20%' c='#3E5575' fw='500'> {order.contact} </Text>
-                  <Text w='35%' c='#3E5575' fw='500'> {order.email} </Text>
-                  <Group w='15%' justify={'space-evenly'} >
-                    <Text w='64%' c='#3E5575' fw='500' ta='end' pe='3px'> {order.subscriptions} </Text>
-                    <Box w='5%'> <HiDotsHorizontal cursor='pointer' onClick={() => handleCompanyClick(order)} /> </Box>
-                  </Group>
-                </Flex>
+                <Box>
+                <Grid justify="space-between" className={classes.tableRow}>
+                  <Grid.Col span={2.80} c='#3E5575' fw='500'> {order.name} </Grid.Col>
+                  <Grid.Col span={3} c='#3E5575' fw='500'> {order.contact} </Grid.Col>
+                  <Grid.Col span={4.00}  c='#3E5575' fw='500'> {order.email}  </Grid.Col>
+                  <Grid.Col span={1.70} c='#3E5575' fw='500' ta='end'> {order.subscriptions} </Grid.Col>
+                  <Grid.Col style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }} span={0.5}> <HiDotsHorizontal cursor='pointer' onClick={() => handleCompanyClick(order)} />  </Grid.Col>
+                </Grid>  
+                </Box>
               ))
             }
         </Box>
