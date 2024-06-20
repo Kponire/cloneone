@@ -149,7 +149,7 @@ const Company = () => {
                   <Text w='35%' c='#3E5575' fw='500'> {order.email} </Text>
                   <Group w='15%' justify={'space-evenly'} >
                     <Text w='64%' c='#3E5575' fw='500' ta='end' pe='3px'> {order.subscriptions} </Text>
-                    <Box w='5%'> <HiDotsHorizontal onClick={() => handleCompanyClick(order)} /> </Box>
+                    <Box w='5%'> <HiDotsHorizontal cursor='pointer' onClick={() => handleCompanyClick(order)} /> </Box>
                   </Group>
                 </Flex>
               ))
@@ -167,7 +167,7 @@ const Company = () => {
                 Company
               </Text>
               </Flex>
-              <MdClose onClick={handleCloseDetail} color="white" size='30px' ></MdClose>
+              <MdClose onClick={handleCloseDetail} color="white" size='30px' cursor='pointer'></MdClose>
             </Flex>
           </Box>
           {editSection === null ? (

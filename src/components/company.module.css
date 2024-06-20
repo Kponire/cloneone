@@ -242,5 +242,6 @@ font-size: 1.2em;
 .hiDotsHorizontal {
     display: flex;
     align-items: flex-end;
+    cursor: pointer;
 }
   
