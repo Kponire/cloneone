@@ -148,7 +148,7 @@ const Company = () => {
                   <Grid.Col span={3} c='#3E5575' fw='500'> {order.contact} </Grid.Col>
                   <Grid.Col span={4.00}  c='#3E5575' fw='500'> {order.email}  </Grid.Col>
                   <Grid.Col span={1.70} c='#3E5575' fw='500' ta='end'> {order.subscriptions} </Grid.Col>
-                  <Grid.Col style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }} span={0.5}> <HiDotsHorizontal cursor='pointer' onClick={() => handleCompanyClick(order)} />  </Grid.Col>
+                  <Grid.Col className={classes.tableRowIcon} span={0.5}> <HiDotsHorizontal cursor='pointer' onClick={() => handleCompanyClick(order)} />  </Grid.Col>
                 </Grid>  
                 </Box>
               ))

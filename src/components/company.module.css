@@ -61,8 +61,8 @@
 }
 
 .headerGroup {
-display: flex;
-gap: 1em;
+    display: flex;
+    gap: 1em;
 }
 
 .searchInput {
@@ -109,6 +109,12 @@ width: 7em;
 .tableRowText {
     color: #3E5575;
     font-weight: 500;
+}
+
+.tableRowIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .detailContainer {
