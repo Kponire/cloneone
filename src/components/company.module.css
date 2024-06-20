@@ -13,7 +13,7 @@
 
 .modalLabel {
     color: #5B6A81;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .modalInput {
@@ -26,14 +26,14 @@
     font-weight: 900;
 }
 
-.modalButtonCancel {
+.modalButtonCancel, .modalButtonCancel:hover {
     padding: 0px 20px;
     background-color: transparent;
     color: #123360;
     font-weight: bolder;
 }
 
-.modalButtonAdd {
+.modalButtonAdd, .modalButtonAdd:hover {
     padding: 0px 40px;
     border-radius: 0px;
     background-color: #14B8FF;

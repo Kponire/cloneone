@@ -38,7 +38,7 @@ const Navbar = ({ isOpen, toggleSidebar }) => {
     },
     {
       name: 'Inventory',
-      icon: <FaList className={classes.iconContainer} />,
+      icon: <FaList style={{ width: '15px'}} className={classes.iconContainer} />,
       subLinks: [
         { name: 'Stock', href: '/inventory/stock' },
         { name: 'Warehouse', href: '/inventory/warehouse' },
