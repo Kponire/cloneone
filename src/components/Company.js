@@ -143,7 +143,7 @@ const Company = () => {
             {
               orders.map((order, key) => (
                 <Box>
-                <Grid justify="space-between" className={classes.tableRow}>
+                <Grid justify="space-between" className={classes.tableRow} key={key}>
                   <Grid.Col span={2.80} c='#3E5575' fw='500'> {order.name} </Grid.Col>
                   <Grid.Col span={3} c='#3E5575' fw='500'> {order.contact} </Grid.Col>
                   <Grid.Col span={4.00}  c='#3E5575' fw='500'> {order.email}  </Grid.Col>
